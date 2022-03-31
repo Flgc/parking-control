@@ -1,7 +1,11 @@
 package biz.api.parkingcontrol.services;
 
+import java.util.List;
+
 import javax.transaction.Transactional;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import biz.api.parkingcontrol.models.ParkingSpotModel;
@@ -31,5 +35,9 @@ public class ParkingSpotService {
 
 	public boolean existsByApartmentAndBlock(String apartment, String block) {
 		return parkingSpotRepository.existsByApartmentAndBlock(apartment, block);
+	}
+
+	public List<ParkingSpotModel> findAll() {
+		return parkingSpotRepository.findAll();
 	}	
 }
